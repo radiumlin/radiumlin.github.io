@@ -1,37 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>中国航海档案</title>
 
+    <link href="static/css/common-grid.css" rel="stylesheet">
+    <link href='static/css/css.css' rel='stylesheet' type='text/css'>
+    <link href="static/css/css1.css" rel="stylesheet">
+    <link href="static/css/css2.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
+
     <style>
+
         body {
             font: 16px/28px 'Microsoft YaHei';
+            background-image: url(static/picture/背景图片3.jpg);
         }
+
+
         h1 {
+            font-size: 40px;
             font-weight: 400;
             text-align: center;
         }
+
         a {
             text-decoration: none;
         }
+
         p {
             text-indent: 2em;
         }
+
+        .kongge {
+            height: 25px;
+        }
+
         .gray {
             color: #888888;
-            font-size: 16px;
+            font-size: 25px;
             text-align: center;
         }
+
         .search {
             color: #666;
+            height: 20px;
             width: 170px;
         }
+
         .btn {
             font-weight: 700;
         }
+
         .nav {
             height: 62px;
             border-top: 3px solid #ff8500;
@@ -39,127 +62,103 @@
             background-color: #fcfcfc;
             line-height: 62px;
         }
+
         .nav a {
             display: inline-block;
             height: 62px;
             padding: 0 20px;
             font-size: 20px;
-            color:#4c4c4c;
+            color: #4c4c4c;
             text-decoration: none;
         }
+
         .nav a:hover {
             background-color: #eee;
-            color:#ff8500;
-        }
-        .box_first {
-            width: 100%;
-            height: 150px;
-            background-color: #f2efbdfb;
-            margin-top: 0%;
-        }
-        .box_second {
-            width: 100%;
-            height: 150px;
-            background-color: #c0f3bbfb;
-            margin-top: 0%;
-        }
-        /*
-        .box a {
-            display: inline-block;
-            height: 25px;
-            font-size: 25px;
-            margin-top: 62px;
-        }
-        .box img {
-            width: 10%;
-            height: 100%;
-        }
-        .box a:hover {
-            background-color: #eee;
             color: #ff8500;
-        }*/
-        .box_first img {
-            width: 10%;
-            height: 150px;
-            float: left;
-        }
-        .box_first h3 {
-            float: left;
-            font-size: 30px;
-            margin-top: 60px;
-        }
-        .box_second img {
-            width: 10%;
-            height: 150px;
-            float: left;
-        }
-        .box_second h3 {
-            float: left;
-            font-size: 30px;
-            margin-top: 60px;
         }
     </style>
 </head>
+
 <body>
 
-    <div class = "nav">
-        <a href="#">春秋战国航海</a>
-        <a href="#">秦朝航海</a>
-        <a href="#">汉朝航海</a>
+    <div class="nav">
+        <a href="#">两汉航海</a>
         <a href="#">隋唐航海</a>
         <a href="#">宋朝航海</a>
         <a href="#">明清航海</a>
         <a href="#">近现代航海</a>
     </div>
+
+    <div class="kongge"></div>
+
     <h1>中国航海档案</h1>
+
+    <div class="kongge"></div>
+
     <div class="gray"><input type="text" value="请输入检索内容" class="search"> <button class="btn">检索</button></div>
+
+    <div class="kongge"></div>
 
     <hr>
 
-    <div class = "box_first">
-            <a href="#">
-        <div class = "box_img">
-            <img src="图片1.jpg" alt="图片1">
-            <h3 class="box_p">文章一</h3>
+<section class="wrapper-full tab-container effectTab-header" id="style_1" style="padding-top:170px;">
+    <div class="wrapper tab-item">
+        <div class="custom-row">
+            <div class="wrapper " align="center">
+                <h1 class="ti title">两汉航海</h1>
+            </div>
+            <div class="column-12 column-xs-12 column-sm-12 tab">
+                <div class="custom-row">
+                    <div class="column-4 column-md-6 column-xs-12 hide-sm hide-md box-tab">
+                        <div class="effect effect-one"><img src="static/picture/两汉001.jpg" class="img-fluid">
+                            <div class="tab-text">
+                                <h2>沿海航路之通畅</h2>
+                                <p>西汉汉武帝对我国周边国家恩威并施，成功疏通我国沿海航路</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-8 column-md-6 hide-xs hide-sm hide-md box-tab">
+                        <div class="effect grid-width8 effect-one"><img src="static/picture/两汉001.jpg"
+                                class="img-fluid">
+                            <div class="tab-text">
+                                <h2 class="pt-1">汉武帝巡海活动</h2>
+                                <p>汉武帝在打通沿海航路的同时与之后，还多次巡游海疆并举</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-6 column-md-6 hide-xs hide-sm box-tab">
+                        <div class="effect grid-width6 effect-one"><img src="static/picture/两汉001.jpg"
+                                class="img-fluid">
+                            <div class="tab-text">
+                                <h2 class="pt-2">中日海上交往与航路</h2>
+                                <p>自徐福等秦人东渡后，中国人越海前往日本者络绎不绝</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-3 column-md-6 column-sm-6 hide-xs box-tab">
+                        <div class="effect grid-width3 effect-one"><img src="static/picture/两汉001.jpg"
+                                class="img-fluid">
+                            <div class="tab-text">
+                                <h2 class="pt-3">第一条印度洋远洋航路的开辟</h2>
+                                <p>汉武帝时期我国国际外交与贸易活动空前开展起来 </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-3 column-sm-6 hide-xs hide-md box-tab">
+                        <div class="effect grid-width3 effect-one"><img src="static/picture/两汉001.jpg"
+                                class="img-fluid">
+                            <div class="tab-text">
+                                <h2 class="pt-3">东海与大秦的海上交通与航路</h2>
+                                <p>海上航路使中国与西域诸国建立了交通与贸易关系</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        </a>
     </div>
-
-    <div class="box_second">
-        <a href="#">
-            <div class="box_img">
-                <img src="图片1.jpg" alt="图片1">
-                <h3 class="box_p">文章二</h3>
-            </div>
-        </a>
-    </div>
-
-    <div class="box_first">
-        <a href="#">
-            <div class="box_img">
-                <img src="图片1.jpg" alt="图片1">
-                <h3 class="box_p">文章三</h3>
-            </div>
-        </a>
-    </div>
-
-    <div class="box_second">
-        <a href="#">
-            <div class="box_img">
-                <img src="图片1.jpg" alt="图片1">
-                <h3 class="box_p">文章四</h3>
-            </div>
-        </a>
-    </div>
-
-    <div class="box_first">
-        <a href="#">
-            <div class="box_img">
-                <img src="图片1.jpg" alt="图片1">
-                <h3 class="box_p">文章五</h3>
-            </div>
-        </a>
-    </div>
+</section>
 
 </body>
+
 </html>
