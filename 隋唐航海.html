@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隋唐航海</title>
+
+     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+   ></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 14px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  flex-direction: column;
+}
+
+
+
+.timeline {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 5px 25px 5px rgba(0, 0, 0, .2);
+}
+.timeline .swiper-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.timeline .swiper-wrapper {
+  transition: 2s cubic-bezier(0.68, -0.4, 0.27, 1.34) 0.2s;
+}
+.timeline .swiper-slide {
+  position: relative;
+  color: #f64865;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+}
+.timeline .swiper-slide::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  right: -115%;
+  bottom: -10%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  box-shadow: -230px 0 150px 60vw rgba(0, 0, 0, .7);
+  border-radius: 100%;
+}
+.timeline .swiper-slide-content {
+  position: absolute;
+  text-align: center;
+  width: 80%;
+  right: 50%;
+  top: 13%;
+  transform: translate(50%, 0);
+  font-size: 12px;
+  z-index: 2;
+}
+.timeline .swiper-slide .timeline-year {
+  display: block;
+  font-size: 22px ;
+  margin-bottom: 50px;
+  transform: translate3d(20px, 0, 0);
+  color: orange;
+  font-style: italic;
+  font-weight: 300;
+  opacity: 0;
+  transition: 0.2s ease 0.6s;
+}
+.timeline .swiper-slide .timeline-title {
+  font-weight: 800;
+  font-size: 54px !important;
+  margin: 0 0 30px;
+  opacity: 0;
+  transform: translate3d(20px, 0, 0);
+  transition: 0.2s ease 0.6s;
+}
+.timeline .swiper-slide .timeline-text {
+  text-indent:2em;
+  line-height: 2.6;
+  opacity: 0;
+  transform: translate3d(20px, 0, 0);
+  transition: 0.2s ease 0.6s;
+  font-size: 20px;
+}
+.timeline .swiper-slide-active .timeline-year {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: 0.2s ease 0.6s;
+
+}
+.timeline .swiper-slide-active .timeline-title {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: 0.2s ease 0.6s;
+}
+.timeline .swiper-slide-active .timeline-text {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: 0.2s ease 0.6s;
+}
+.timeline .swiper-pagination {
+  right: 15% !important;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+  z-index: 1;
+}
+.timeline .swiper-pagination::before {
+  content: "";
+  position: absolute;
+  right: 10%;
+  left: -30px;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: rgba(255, 255, 255, 0.771);
+}
+.timeline .swiper-pagination-bullet {
+  width: auto;
+  height: auto;
+  text-align: center;
+  opacity: 1;
+  background: transparent;
+  color: #d4a024;
+  margin: 30px 0 !important;
+  position: relative;
+  font-size: 30px;
+}
+.timeline .swiper-pagination-bullet::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: -32.5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background-color: #d4a024;
+  transform: scale(0);
+  transition: 0.2s;
+}
+.timeline .swiper-pagination-bullet-active {
+  color: #d4a024;
+}
+.timeline .swiper-pagination-bullet-active::before {
+  transform: scale(1);
+}
+.timeline .swiper-button-next, .timeline .swiper-button-prev {
+  background-size: 20px 20px;
+  top: 15%;
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+  z-index: 2;
+  transition: 0.2s;
+}
+.timeline .swiper-button-prev {
+  left: 8%;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23d4a024'%2F%3E%3C%2Fsvg%3E");
+}
+.timeline .swiper-button-prev:hover {
+  transform: translateX(-3px);
+}
+.timeline .swiper-button-next {
+  right: 8%;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23d4a024'%2F%3E%3C%2Fsvg%3E");
+}
+.timeline .swiper-button-next:hover {
+  transform: translateX(3px);
+}
+@media screen and (min-width: 768px) {
+  .timeline .swiper-slide::after {
+    right: -30%;
+    bottom: -8%;
+    width: 240px;
+    height: 50%;
+    box-shadow: -230px 0 150px 50vw rgba(0, 0, 0, .7);
+  }
+  .timeline .swiper-slide-content {
+
+    top: 5%;
+    left: 3%;
+    transform: translateY(1%);
+    width: 75%;
+    font-size: 8px;
+    text-align: left;
+  }
+  .timeline .swiper-slide .timeline-year {
+    margin-bottom: 0;
+    font-size: 32px;
+  }
+  .timeline .swiper-slide .timeline-title {
+    font-size: 35px;
+    margin: 0;
+  }
+  .timeline .swiper-pagination {
+    display: flex;
+  }
+  .timeline .swiper-button-prev {
+    top: 15%;
+    left: auto;
+
+    transform: rotate(90deg) translate(0, 10px);
+  }
+  .timeline .swiper-button-prev:hover {
+    transform: rotate(90deg) translate(-3px, 10px);
+  }
+  .timeline .swiper-button-next {
+    top: auto;
+    bottom: 15%;
+
+    transform: rotate(90deg) translate(0, 10px);
+  }
+  .timeline .swiper-button-next:hover {
+    transform: rotate(90deg) translate(3px, 10px);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .timeline .swiper-slide::after {
+    right: -20%;
+    bottom: -12%;
+    width: 240px;
+    height: 50%;
+    box-shadow: -1px 0 230px 32vw rgba(0, 0, 0, .7);
+  }
+  .timeline .swiper-slide-content {
+    right: 25%;
+  }
+}
+
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+
+  <div class="timeline">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+
+<div class="swiper-slide" style="background-image: url(背景图片3.jpg)" data-year="A.D 600">
+  <div class="swiper-slide-content">
+    <h4 class="timeline-title">隋朝·与日本的海上交往</h4>
+
+    <p class="timeline-text">
+      从公元600年起，自南北朝以后中断了百余年的中日两国官方交往重新恢复，这一年，日本向中国派出了第一批遣隋使。
+      至614年的十五年间，中日双方使节往来共五次，应该是相当频繁的。彼时，正是中国的隋朝。虽然隋朝在历史大舞台上仅仅停留了短短的三十几年，
+      但它在华夏历史上却被视为一个不容忽视的王朝。它那似乎在漫不经心中上演的一切，有着承前启后的作用。
+    </p>
+    <p class="timeline-text">
+      603年，日本确立了冠位十二等制度，引用了儒学的五德来区分官阶，冠位十二等表示干支十二属性，乃天地之循序。
+      604年，颁布《宪法十七条》，为何是十七条？这是因为按照阴阳五行学说的说法，阴的极数为八，阳的极数为九，十七乃阴阳之和、天地之道。
+      《宪法十七条》中还广泛地引用了中国的儒家、法家、道家的典故或成语。
+    </p>
+    <p class="timeline-text">
+      607年，圣德太子派遣与天皇有血缘关系的豪族小野妹子、汉族归化人后裔鞍作福利为第二批遣隋使，带着数十名僧侣前往中国，并向大隋递交国书。
+      随团的数十名僧人，可以说是日本历史上派出的第一批留学生，他们的主要目的是来学习佛法。
+    </p>
+    <p class="timeline-text">
+      608年，大隋使者裴世清率团共十三人携带隋炀帝赏赐的礼物，跟随日本使团回访日本。两团成员在山东半岛乘船，入南海，前往日本。
+    </p>
+    <p class="timeline-text">
+      608年九月，小野妹子一行护送隋朝使团回国，同时作为代表第三次出使中国。第三次遣隋使的阵容比前两次更强大：
+      增加了汉学修养深厚的吉世雄为小使，另外有四名留学生和四名学问僧。
+    </p>
+    <p class="timeline-text">
+      614年，日本再派遣隋使犬上君御田锹、矢田部造前往中国。此时的隋朝已处于风雨飘摇中。
+    </p>
+    <p class="timeline-text">
+      在隋朝存在的短短三十年里，日本朝廷先后四次派出了使节团和留学生，其学习的积极性由此可见一斑。
+      在隋朝之后的唐朝，日本派往中国的使团和留学生也更多。派遣隋使和留学生除了加强了与中国的联系，还可以学习中国的制度、佛法等各个方面，
+      同时，隋朝的典章文物等也直接或间接传入日本，促进了日本飞鸟文化的形成。飞鸟文化的核心是佛教。前文说过，圣德太子笃信佛教，而隋朝则大兴佛教，
+      日本在佛经、佛寺等方面深受南北朝和隋朝影响。
+    </p>
+  </div>
+</div>
+
+        <div class="swiper-slide" style="background-image: url(背景图片3.jpg)" data-year="A.D 607">
+          <div class="swiper-slide-content">
+            <h4 class="timeline-title">隋朝·加强大陆与台湾的海上联系</h4>
+            <p class="timeline-text">
+            自吴国遣卫温、甫葛直船队到达台湾后，在两晋与南北朝时期，大陆与台湾之间的海上联系未见于史籍。隋朝重新统一中国后，台湾海峡两岸的通航活动又一次得到了恢复和加强。
+            </p>
+            <p class="timeline-text">
+            流求最早是隋书上记载的国家，之后的中国史书上也有记载。台湾历史学家史明认为是现今琉球群岛和台湾等岛屿的总称。
+            隋大业三年（607年），隋炀帝令羽骑尉朱宽入海求访异俗，朱宽到流求国，语言不通，掠一人而返。次年，隋炀帝令朱宽到流求国与之建立宗番关系，遭拒绝，朱宽取其布甲而还。当
+            时倭国使者来朝，看了后说:“这是夷邪久国人所用的东西。”
+            </p>
+            <p class="timeline-text">
+            610年隋炀帝派武贲郎将陈棱、朝请大夫张镇州（有的写成“张镇周”）率东阳兵一万多人从义安（今广东潮州）出海袭击流求国。
+            从高华屿东行二日至郤鼊屿，又坐船一日到流求，从出海到抵达共计月余。流求人开始时以为来的是商船，于是到军中贸易。
+            陈棱部队趁机登陆，其手下有不少东南亚兵，其中有昆仑奴做翻译，宣扬建立宗番关系，流求拒绝，陈棱令张镇州为先锋，武力攻击，流求国王欢斯渴剌兜派兵抵抗，
+            被张镇州部击败。陈棱率部队抵达低没檀洞，流求小王欢斯老模率兵抵抗，被击败，欢斯老模被隋军斩首。那天天气雾雨，将士皆惧，陈棱斩白马以祭海神，既而开霁。
+            隋军兵分五路，进至流求首都，流求国王欢斯渴剌兜率数千人抵抗，陈棱令张镇州为先锋，将其击败。陈棱乘胜逐北，至其栅，欢斯渴剌兜背靠栅而排兵。
+            陈棱派隋军精锐出击，战斗从辰时至未时，苦斗不息。流求军疲惫，欢斯渴剌兜撤军入栅。陈棱命令填其沟堑，攻破其栅，斩欢斯渴剌兜，活捉其子岛槌，焚其宫室，虏其男女数千人，满载战利品而还。
+            </p>
+            <p class="timeline-text">
+            隋炀帝大悦，加封陈棱右光禄大夫，武贲如故，张镇周金紫光禄大夫。
+            </p>
+          </div>
+        </div>
+
+
+
+        <div class="swiper-slide" style="background-image: url(背景图片3.jpg)" data-year="A.D 612">
+          <div class="swiper-slide-content">
+            <h3 class="timeline-title">隋朝·与高丽的海上交往 </h3>
+            <p class="timeline-text">
+            朝鲜半岛上的高丽，本作高句丽，自汉代以来皆藩附于中国中央政权，东晋时。高句丽趁中国动乱，曾掠占辽东地区。
+            南北朝时，北周武帝封其王高汤为高丽王，由此改称高丽。隋建立后，为收复辽东故地并扩张疆域，曾四次出兵高丽，其中三次均动用水师，
+            反映了其时对朝鲜半岛的航行态势。
+            </p>
+            <p class="timeline-text">
+            高句丽位于东北亚地区，发祥地在现如今的吉林附近，最初也是一个游牧民族。
+            高句丽的发展史与我们非常相近，都是一部加强版血与火的扩张史。但二者唯一的区别在于，我们坐拥富庶的中原地区，
+            而高句丽却一直占据着贫穷苦寒的东北及朝鲜半岛地区。高句丽起源于公元前37年（汉元帝建昭二年），灭亡于公元668年（唐高宗乾封三年）。
+            </p>
+          </div>
+        </div>
+
+        <div class="swiper-slide" style="background-image: url(背景图片3.jpg)" data-year="A.D 705">
+          <div class="swiper-slide-content">
+            <h4 class="timeline-title">唐朝·对东北地区渤海国的海上交往</h4>
+            <p class="timeline-text">唐渤海国（698年一926年），是我国东北地区一个新兴的以粟末靺鞨族为主体建立起来的、臣属于唐朝的地方政权。
+              靺鞨即我国东北固有少数民族肃慎（挹娄、勿吉）的后裔，满族之先祖，其疆域约北至松花江流域，东北至今伯力东北，东至日本海，西至松花江与嫩江合流处，南至大蒲石河河口以南。
+            </p>
+            <p class="timeline-text">
+            据《渤海国志》所载，从唐神龙元年(705年)至开成四年（853年），渤海国遣使入唐即达40次之众。
+            而唐朝政府也屡派使节前往渤海国，其中较为著名、且有文物可考的是崔忻与张建章二人。开元元年(713年)，受唐册封为震国公的粟末靺羯首领大祚荣遣王子入唐通聘。
+            同年，为加强对东北的控辖与维护民族和睦，唐玄宗遣郎将崔忻以“救持节宣劳靺羯使”名义，从长安出发，经山东半岛，渡渤海海峡至辽东半岛，
+            转樯东驶，再溯鸭绿江至“旧国”（今吉林省敦化敖东城），册封大祚荣为渤海郡王，亦称渤海都督。出是“去靺羯号，专称渤海”。开元二年(714年)，崔忻取海道返回，
+            途经今辽宁省大连市旅顺口区黄金山麓，凿井二口，并刻石为记。刻石铭文为：“救持节宣劳羯使鸿胪卿崔忻井两口，永为纪验，开元二年五月十八日。”。
+            又唐大和六年(832年)，渤海国遣使贺守谦来聘，幽州府遂命张建章以瀛州司马之职答聘。据1956年在北京德胜门外出土的《张建章墓志》介绍，他于大和七年(833年)“方舟而乐，海涛万里”，
+            于次年秋抵达渤海上京，受到了热情款待。张建章在留渤期间广为交际，书诗问答。大和九年(853年)仲秋，张建章循海载谊复命。
+            </p>
+
+          </div>
+        </div>
+
+        <div class="swiper-slide" style="background-image: url(背景图片3.jpg)" data-year="A.D 743">
+          <div class="swiper-slide-content">
+            <h4 class="timeline-title">秦朝·鉴真东渡日本</h4>
+            <p class="timeline-text">鉴真东渡日本，是唐代中日睦邻航海交往中的重大事件之-、鉴真（688-763年），扬州江阳县（今江苏省扬州）人，
+              俗姓淳于，为唐代著名的高僧。唐长安二年（702年），鉴真14岁，进扬州大云寺当沙弥，20岁时便崭霹头角。此后，他游历于长安与洛阳，穷究佛教经义，
+              对东邻日本也有所了解，感慨说:“诚是佛法兴隆有缘之国也。”
+            </p>
+            <p class="timeline-text">
+              唐开元元年（713年），鉴真载誉返回扬州，广招弟子4万余众，成为声名遐迩的授戒大师。
+            </p>
+            <p class="timeline-text">
+              唐天宝元年（742年）冬十月，日本遣唐留学僧荣睿、普照至扬州大明寺拜谒鉴真，恳请“大和上东游兴化”，得到概诺。从此，鉴真便坚定地踏上了六次东渡日本的艰难历程。
+            </p>
+
+            <p class="timeline-text">
+              唐天宝二年(743年)，鉴真第一次东渡，因遭僧人如海密告而未遂。同年十二月，鉴真由扬州出发，顺长江举帆东下，
+              当航抵狼沟浦（今江苏省南通市狼山汇而）时，遇狂风恶浪，旧船破损，第二次东渡也告流产。修好船后，鉴真等驶到乘名山（今舟山群岛之大衡山），又遇风触礁，被迫弃舟登岸，
+              却被明州地方官软禁于鄮县名刹阿育王寺，第三次东渡又告夭折。
+            </p>
+
+            <p class="timeline-text">
+            第四次东渡，鉴真计划边传教，边筹资，由福州启航。此事又因其弟子牒告官府而中止。大宝七年(748年)六月，
+            鉴真一行乘船驶出长江，风信不顺，数度抛泊待风。十月十六日，方趋西南风扬帆东驶，却又遇狂风巨浪，船失控漂荡，
+            最后竟在海南岛登陆，第五次东渡也失败。
+            </p>
+
+            <p class="timeline-text">
+              鉴真连续五次航行受阴，赴日意志益坚。回到扬州后，他不顿双目失明之困，继续准备东渡。
+              唐天宝十二年(753年)十月十五日，66岁高龄的鉴真应日本遣唐使藤原清河等和留学生阿倍仲麻吕之请，决定再度赴日。十月二十九日晚，鉴真及弟子等24人，
+              由扬州龙兴寺潜行至江头，迅即登舟启程，出大运河入长江，直趋黄泗浦（今江苏省常熟市黄泗），与日本遣唐使船队会合。
+              十二月二十六日，鉴真等一行进入日本太宰府，并于次年(754年)二月一日航达日本遣唐使船队的始发港难波。
+              自743年起，至754年止，鉴真先后6次东渡日本，终以非凡的信念与顽强的毅力，在中日睦邻航海史上留下了千古美淡。鉴真在日本受到了举国上下的盛大欢迎。
+              在日本的10年生活中，鉴真授戒讲经，开创了日本的律宗。同时还广泛地传播先进的中华文明。
+            </p>
+
+
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+<script>
+    $(function(){
+
+var timelineSwiper = new Swiper ('.timeline .swiper-container', {
+  direction: 'vertical',
+  loop: false,
+  speed: 1600,
+  pagination: '.swiper-pagination',
+  paginationBulletRender: function (swiper, index, className) {
+    var year = document.querySelectorAll('.swiper-slide')[index].getAttribute('data-year');
+    return '<span class="' + className + '">' + year + '</span>';
+  },
+  paginationClickable: true,
+  nextButton: '.swiper-button-next',
+  prevButton: '.swiper-button-prev',
+  breakpoints: {
+    768: {
+      direction: 'horizontal',
+    }
+  }
+});
+
+
+    });
+</script>
+</body>
+</html>
