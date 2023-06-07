@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>明清航海</title>
+
+     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+   ></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 14px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  flex-direction: column;
+}
+
+
+
+.timeline {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 5px 25px 5px rgba(0, 0, 0, .2);
+}
+.timeline .swiper-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.timeline .swiper-wrapper {
+  transition: 2s cubic-bezier(0.68, -0.4, 0.27, 1.34) 0.2s;
+}
+.timeline .swiper-slide {
+  position: relative;
+  color: #000;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+}
+.timeline .swiper-slide::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  right: -115%;
+  bottom: -10%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  box-shadow: -230px 0 150px 60vw rgba(0, 0, 0, .7);
+  border-radius: 100%;
+}
+.timeline .swiper-slide-content {
+  position: absolute;
+  text-align: center;
+  width: 80%;
+  right: 50%;
+  top: 13%;
+  transform: translate(50%, 0);
+  font-size: 12px;
+  z-index: 2;
+}
+.timeline .swiper-slide .timeline-year {
+  display: block;
+  font-size: 22px ;
+  margin-bottom: 50px;
+  transform: translate3d(20px, 0, 0);
+  color: orange;
+  font-style: italic;
+  font-weight: 300;
+  opacity: 0;
+  transition: 0.2s ease 0.6s;
+}
+.timeline .swiper-slide .timeline-title {
+  font-weight: 800;
+  font-size: 54px !important;
+  margin: 0 0 30px;
+  opacity: 0;
+  transform: translate3d(20px, 0, 0);
+  transition: 0.2s ease 0.6s;
+}
+.timeline .swiper-slide .timeline-text {
+  text-indent:2em;
+  line-height: 2.6;
+  opacity: 0;
+  transform: translate3d(20px, 0, 0);
+  transition: 0.2s ease 0.6s;
+  font-size: 20px;
+}
+.timeline .swiper-slide-active .timeline-year {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: 0.2s ease 0.6s;
+
+}
+.timeline .swiper-slide-active .timeline-title {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: 0.2s ease 0.6s;
+}
+.timeline .swiper-slide-active .timeline-text {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: 0.2s ease 0.6s;
+}
+.timeline .swiper-pagination {
+  right: 15% !important;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+  z-index: 1;
+}
+.timeline .swiper-pagination::before {
+  content: "";
+  position: absolute;
+  right: 10%;
+  left: -30px;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: rgba(255, 255, 255, 0.771);
+}
+.timeline .swiper-pagination-bullet {
+  width: auto;
+  height: auto;
+  text-align: center;
+  opacity: 1;
+  background: transparent;
+  color: #d4a024;
+  margin: 30px 0 !important;
+  position: relative;
+  font-size: 30px;
+}
+.timeline .swiper-pagination-bullet::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: -32.5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background-color: #d4a024;
+  transform: scale(0);
+  transition: 0.2s;
+}
+.timeline .swiper-pagination-bullet-active {
+  color: #d4a024;
+}
+.timeline .swiper-pagination-bullet-active::before {
+  transform: scale(1);
+}
+.timeline .swiper-button-next, .timeline .swiper-button-prev {
+  background-size: 20px 20px;
+  top: 15%;
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+  z-index: 2;
+  transition: 0.2s;
+}
+.timeline .swiper-button-prev {
+  left: 8%;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23d4a024'%2F%3E%3C%2Fsvg%3E");
+}
+.timeline .swiper-button-prev:hover {
+  transform: translateX(-3px);
+}
+.timeline .swiper-button-next {
+  right: 8%;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23d4a024'%2F%3E%3C%2Fsvg%3E");
+}
+.timeline .swiper-button-next:hover {
+  transform: translateX(3px);
+}
+@media screen and (min-width: 768px) {
+  .timeline .swiper-slide::after {
+    right: -30%;
+    bottom: -8%;
+    width: 240px;
+    height: 50%;
+    box-shadow: -230px 0 150px 50vw rgba(0, 0, 0, .7);
+  }
+  .timeline .swiper-slide-content {
+
+    top: 5%;
+    left: 3%;
+    transform: translateY(1%);
+    width: 75%;
+    font-size: 8px;
+    text-align: left;
+  }
+  .timeline .swiper-slide .timeline-year {
+    margin-bottom: 0;
+    font-size: 32px;
+  }
+  .timeline .swiper-slide .timeline-title {
+    font-size: 35px;
+    margin: 0;
+  }
+  .timeline .swiper-pagination {
+    display: flex;
+  }
+  .timeline .swiper-button-prev {
+    top: 15%;
+    left: auto;
+
+    transform: rotate(90deg) translate(0, 10px);
+  }
+  .timeline .swiper-button-prev:hover {
+    transform: rotate(90deg) translate(-3px, 10px);
+  }
+  .timeline .swiper-button-next {
+    top: auto;
+    bottom: 15%;
+
+    transform: rotate(90deg) translate(0, 10px);
+  }
+  .timeline .swiper-button-next:hover {
+    transform: rotate(90deg) translate(3px, 10px);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .timeline .swiper-slide::after {
+    right: -20%;
+    bottom: -12%;
+    width: 240px;
+    height: 50%;
+    box-shadow: -1px 0 230px 32vw rgba(0, 0, 0, .7);
+  }
+  .timeline .swiper-slide-content {
+    right: 25%;
+  }
+}
+
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+
+  <div class="timeline">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+
+<div class="swiper-slide" style="background-image: url(背景图片3.jpg)" data-year="A.D. 1405">
+  <div class="swiper-slide-content">
+    <h4 class="timeline-title">明朝·郑和船队</h4>
+
+          <p class="timeline-text">
+            为胜任“耀兵异域，示中国富强”与“宣德化而柔远人”的外交使命，抗衡大洋上的惊涛骇浪，郑和组建了当时世界上最庞大的远洋船队，
+            其主要特点是：船员众多，建制完整；船舶巨大，种类齐全：编队严密，通讯捷便。
+          </p>
+          <p class="timeline-text">
+            1.船员众多，建制完整。
+            郑和船队下西洋的全体船员人数相当众多。据载，第一次为27800余人，第三次为27000余人，第四次为27670人，第七次为27550人。其余几次阙录，但估计也在27000人左右。
+
+          </p>
+          <p class="timeline-text">
+            2.船舶巨大、种类齐全。
+            郑和下西洋，每次都有大、小海船200余艘，是一支结构精良、种类齐全的特混船队。在海洋上航行时，“维绡挂席，际天而行”，蔚为壮观。
+
+          </p>
+          <p class="timeline-text">
+            3.编队严密，通讯捷便。
+            郑和船队的编队，就总体而论，有大与分之分。大腙者，即全体船舶编队；分者，即抽出一部分船舶编队。这种大腙与分腙的编队，可分可合，机动灵活，使郑和船队能在必要时分赴各地，以完成各别的航行任务。
+
+          </p>
+          <p class="timeline-text">
+            4.15世纪世界上规模最大的远洋船队。
+            郑和率领的这支船队，是15世纪规模最大的远洋船队，只要拿地理大发现时代几支最著名的西方远洋船队与之比较一下，便可一目了然。
+            如1492年横渡大西洋到达美洲的西班牙哥伦布船队，只有90名水手，3艘轻帆船，其中最大的旗舰“圣玛丽亚”号，不过250吨，仅为郑和宝船的1/10；
+            1497年绕过好望角航达印度的葡萄牙达·伽马船队，只有160人，4艘小帆船，主力旗舰仅120吨，全长不到25米。1519年进行环球航行的西班牙麦哲伦船队，也只有265人，
+            5艘小帆船，其中两艘130吨，两艘90吨，1艘60吨，加起来的总吨位也不过是郑和一艘宝船的1/5。由此可见，郑和下西洋在世界航海史上占据的领先地位，
+            是当时任何所谓的西方海上强国所无可匹敌的，这不愧为中国航海史上的莫大骄傲。
+
+          </p>
+        </div>
+      </div>
+
+        <div class="swiper-slide" style="background-image: url(背景图片3.jpg)" data-year="A.D. 1405">
+          <div class="swiper-slide-content">
+            <h4 class="timeline-title">隋朝·郑和七下西洋（前四次）</h4>
+            <p class="timeline-text">
+            第一次下西洋
+            永乐三年六月十五日(1405年7月11日)，明成祖“命和及其侪王景弘等通使西洋”。郑和船队“自苏州刘家河（即刘家港，今江苏省太仓浏河，泛海至福建”。
+            抛泊休整。同年冬天，趁东北季风“复自福建五虎门（在今福建省长乐县）扬帆南下。此行首达占城（今越南中南部），再至爪哇。
+            然后，经旧港〔今苏门答腊岛巨港）、苏门答刺、南巫里(即南浡里，今苏门答腊班达亚齐)，锡兰山（今斯里兰卡），抵达古里(今印度卡利卡特，又译科泽科德)。
+            水乐五年九月二日(1407年10月2日)，郑和回到南京复命。
+
+            </p>
+            <p class="timeline-text">
+            （二）第二次下西洋
+            “水乐五年(1407年)九月癸亥（十三日），郑和复使西洋”。这次主要访问了占城、爪哇、暹罗（今泰国）、满刺剌加、南巫里、加异勒（今印度南端加耶尔伯德纳姆）、
+            锡兰山、柯枝（今印度柯钦）、古里等国。回国之期，约在永乐七年(1409年)夏季七、八月间。
+
+            </p>
+            <p class="timeline-text">
+            （三）第次下西洋
+            永乐七年秋九月(1409年10月)，郑和船队“自太仓刘家港开船，十月到福建长乐太平港停泊，十二月丁福建五虎门开洋，
+            张十一帆，顺风十昼夜到古城国”接着又经爪哇、满刺加、暹罗、阿鲁、苏门答刺、南巫里、到锡兰。在那儿，郑和派出一支分腙船队前往加异勒、
+            甘巴里（今印度科摩林角）、阿拨巴丹（似今印度西岸的阿麦达巴丹）：而自己则率大腙宝船访问小葛兰（今印度奎隆）、柯枝、古里。
+            永乐九年六月十六日(1411年7月6日)，郑和还京。
+
+            </p>
+            <p class="timeline-text">
+            （四）第四次下西洋
+            经过前三次下西洋，明成祖“以西洋近国已航海贡琛，稽颡阙下，而远者犹未宾服，乃于“永乐十年(1412年)十月丙中（十五日）”，
+            下诏“遣太监郑和等赍敕”四下西洋，远航波斯湾、红海与乐非海岸。水乐十一年(1413年)冬十月，郑和正式启程。这次航行所及的海外国家计有：
+            满刺加、爪哇、占城、苏门答刺、柯枝、古里、喃渤利（即南巫里）、彭亨（今马来西亚彭京河口）、急兰丹（今马来西亚哥打巴鲁）、加异勒、忽鲁谟斯
+            （今霍尔木兹海峡格什姆岛）、比剌（似今莫桑比克港）、溜山（今马尔代夫群岛）、孙刺（似今莫桑比克的索法拉）、阿丹（今民主也门的亚丁）、
+            刺撒（今伊萨角）、木骨都束（今摩加迪沙）、不刺哇（今布腊瓦）、麻林(今基尔瓦·基西尼瓦)
+            等。永乐十三年七月八日(1415年8月12日)，郑和回国。
+
+            </p>
+          </div>
+        </div>
+
+
+
+        <div class="swiper-slide" style="background-image: url(背景图片3.jpg)" data-year="A.D. 1416">
+          <div class="swiper-slide-content">
+            <h3 class="timeline-title">明朝·郑和七下西洋（后三次） </h3>
+            <p class="timeline-text">
+            （五）第五次下西洋
+            永乐十四年(1416年)十二月初十，郑和奉诏第五次下西洋。永乐十五年(1417年)五月十六日，郑和至福建泉州灵山回教先贤墓行香，“望灵圣庇佑”。
+            同年冬天，船队开洋出国，遍访了古里、爪哇、满刺加、占城、锡兰山、木骨都束、溜山、喃渤利、卜剌哇（即不刺哇）、阿丹、苏门答刺、麻林、刺撤（今阿拉伯也门之伊萨角）、
+            忽鲁漠斯、柯枝、南巫里、沙里湾泥（今印度南端东岸）、彭亨、旧港等国。永乐十七年七月十七日(1419年8月8日)，郑和船队返回国内。
+            </p>
+            <p class="timeline-text">
+            （六）第六次下西洋
+            永乐十九年正月三十日(1421年3月3日)，“忽鲁谟斯第十六国使臣返国，赐钞币表里。
+            复遣太监郑和等赍敕及锦绮纱罗绫绢等物赐诸国王，就与使偕行”。由是，郑和赶在东北季风之尾，扬帆南下，统领舟师六下西洋。
+            这次所到的地方有上述之忽鲁漠斯、阿丹、祖法儿（今阿曼的佐法儿）、刺撒、不刺哇、木骨都束、古里、柯枝、加异勒、锡兰山、溜山、喃渤利、
+            苏门答刺、阿鲁、满刺加、甘巴里等十六国；此外，尚有暹罗、榜葛刺（今孟加拉）等国。
+            </p>
+            <p class="timeline-text">
+              （七）第七次下西洋
+              永乐二十二年(1424年)正月郑和曾专程出使旧港，但因航迹未逾马六甲海峡，故未列入《天妃灵应之纪》的七下西洋碑铭中。
+              郑和奉诏七下西祥是宣德五年(1430年)六月。宣德六年(1431年)正月与十一月，他偕王景弘等在太仓刘家港天妃宫与福建长乐南山，
+              先后刊勒《通番事迹》碑与《天妃灵应之纪》碑，记下了他与明初广大航海者七下西洋的壮丽史实与所到区域。而后，举帆开洋。
+            </p>
+          </div>
+        </div>
+
+        <div class="swiper-slide" style="background-image: url(背景图片3.jpg)" data-year="A.D. 1646">
+          <div class="swiper-slide-content">
+            <h4 class="timeline-title">明朝·郑成功集团的海外航运贸易</h4>
+            <p class="timeline-text">郑成功集出之所以能在东南沿海长期坚持反清复明活动，关键在于实行了“通洋裕国，以商养兵”的战略，积极从事海外航运贸易。
+              据资料称，郑成功商船队在南洋活动的地方，即有咬留吧（今印尼雅加达）、东京（今越南北部的河内与海防一带）、暹罗、广南（今越南蚬港）、马尼拉、
+              柬埔寨、柔佛、北大年等海港。直接经营这些地方航海贸易的商船约有一、二十余艘。此外，还有从事中闲、南洋、日本之间三角贸易的海船约有10艘左右。
+              在对日贸易方面，郑成功集团更是不遗余力。据统，从顺治四年(1647年)至康熙元年(1662年)，在由郑成功控制东南沿海的16年中，抵口华船数除第一年为30艘外，
+              余者每年约均近50艘。诚如时人所说：“成功以海外弹丸之地，养兵十余万，甲胄戈矢，罔不坚利，战舰以数千计，又交通内地，遍买人心，而财用不匮者，以有通洋之利也”。
+            </p>
+
+          </div>
+        </div>
+
+        <div class="swiper-slide" style="background-image: url(背景图片3.jpg)" data-year="A.D. 1688">
+          <div class="swiper-slide-content">
+            <h4 class="timeline-title">清朝·康熙开禁后的对外航海贸易</h4>
+            <p class="timeline-text">康熙开禁后，中国商船纷纷驶往长崎港，且逐年增多，到1688年高达193艘。
+              对此，日本政府不胜负担，进行种种限制。同时，褙政府也对赴日办铜商船严加各种控制。这样，中国驶日商船便急制减少，到1742年减至12艘。
+              在此期间，江浙商品经济的发展，普陀山成为中国商船驶往长崎前的主要集泊场所。
+            </p>
+            <p class="timeline-text">
+            进入19世纪，中国对南洋的航运态势，发生了深刻的时代变化。一方面，由于清朝限制海外贸易的苛令陋规有增无减，使“洋船失利”，
+            削弱了在海外市场的竞争能力：另方，出西方资本主义列强对南洋的航运垄断，使中国木帆船被排挤出传统的国外市场，
+            中国海商也开始降为荷、英、美等国航运公司的中介人与附庸。到道光元年(1821年)，由中国远洋航业中心之一厦门发往南洋的正式商船数，
+            已只有可怜的10余艘了。而这一时期在东南亚活动的中国商船，一般只有300艘左右，运力约8万吨。与上一个世纪的盛期相比，已呈明显的颓势。。
+            </p>
+            <p class="timeline-text">
+              在中国远祥航业走向衰落的同时，西方列强的远洋航业却急剧膨胀。
+              且不谈它们在全球范围内的扩张，即以其对华航业之一隅而论，便可看出咄咄逼人的态势。据《粤海关志》所载，在18世纪中叶，
+              每年来华的外国商船不过数艘至20余艘而已，其载运量也只有一二万吨。但到19世纪20年代，进人广州的外国商船已达100余艘，6万余载重吨。
+              而到鸦片战争前夕，西方各国抵华商船已达数百艘，总运载力超过8万余吨，达到了可与中国帆船相匹的水平。
+            </p>
+
+            <p class="timeline-text">
+              中西远洋航业的此消彼长，充分展示了资本主义较之封建主义在发展社会生产力方面的历史进步性。
+              诚如马克思与恩格斯所深刻指出的那样：“资产阶级，由于开拓了世界市场，使一切国家的生产和消费都成为世界性的了。
+              不管反动派怎样惋惜，资产阶级还是挖掉了工业脚下的民族基础。古老的民族工业被消灭了，并且每天都还在被消灭。”
+              清代的远洋航业虽曾一度称雄于东南亚，但是，那种由封建主义自然经济所决定的封建专制主义的航海政策，
+              注定了中国古老的木帆船航业必将无可挽回地走向衰败。
+            </p>
+          </div>
+        </div>
+
+        <div class="swiper-slide" style="background-image: url(背景图片3.jpg)" data-year="A.D. 1515">
+          <div class="swiper-slide-content">
+            <h4 class="timeline-title">明清·西方殖民主义者之海上东侵</h4>
+            <p class="timeline-text">最先抵达中国沿海叩关的是葡萄牙船队。葡萄牙人在1511年征服满剌加后，于1515年至1517年间，
+              即遣裴勒斯特罗与安德洛德等，率领船队开始对中国叩关通商。当时，这些殖民主义急先锋以进贡为名，“驾大舶突至广州澳口，铳声如雷”。
+              旋因通商未遂，“乃退泊东莞南头，盖房树栅”，占据屯门岛，“恃铳以自固”。在此以后，葡人不但屡次“杀人抢船”、“剽劫行旅”，
+              踏勘并骚掠我粤、闽、浙海岸，大搞海上武装走私贸易；还于1553年通过行贿中国地方官，以避风晒货为名，强行“租借”澳门；并在那里建炮台、设官署，
+              使之成为西方侵华的第一块殖民地。
+            </p>
+            <p class="timeline-text">
+              接踵而至中国沿海的是西班牙人。1565年，西人越过太平洋，占据菲律宾后，于1575年遺传教士罗达与马丁等人，赍国书与方物至厦门，
+              求准与中国通商。在1603至1639年间，西班牙殖民当局还蓄意打击在海外华人航运势力，3次屠杀留居非律宾的华侨。接着，又在1626年强占中国的基隆，作为其侵华的桥头堡。
+            </p>
+            <p class="timeline-text">
+              荷兰人之东侵，居葡、西之后。1588年，荷兰协助英国在英吉利海峡击败西班牙的“海上无敌舰队”，由是挟势遣舟东来，于16世纪末抵达东南亚。
+              1601年，荷人至澳求市，未得允许。1602年，荷兰在爪哇的巴达维亚（今雅加达）设立海外殖民大本营一——东印度公司。白此，荷人频叩中国海关大门，并于1622年与1623年。
+              先后侵占澎湖和台湾。接着，又在1641年撵走西班牙人而独占台湾。英国人在1600年设立了享有对殖民地拥有军事、政治、经济全权的东印度公闭，
+              并在17世纪中叶击败了“海上马车夫”荷兰，成为世界上首屈一指的殖民帝国。1635年，英国商船“伦敦”号代葡送货首达澳门，然不果而还。
+              1637牛，巾魏德尔率领的英舰队开赴广州，强占虎门炮台，企图以武力迫使中国对英开放。1699年，英获准在广州设立商馆。此后，英不断通过外交途径，要求扩大贸易、
+              增辟商港，裁减税收，并在1757与1793年分别发生了著名的洪仁辉北上呈控粤海关年件与马戛尔尼秦使访华事件。英国在上述努力失败行，转向中国炫耀武力，
+              骚扰中国沿海，炮击船民，测海道，绘制地图，走私鸦片，城为西方列强侵华的“带头羊”。
+            </p>
+
+            <p class="timeline-text">
+              法国人于1640年开始对华叩关，开展航海贸易。1728年，法国在广州开设商馆。但商业势力远逊英国。不过，在传教上渗透方面却相当活跃，别具一格。
+            </p>
+
+            <p class="timeline-text">
+              美国人在1784年始派“中国皇后”号至广州通商。其起步虽晚，但进展很快。
+              1789年，在华外国商船共86艘，其中英船61艘，美国15艘；到1832年，美船已增62艘，成为仅次于英国的第二对华贸易大国与鸦片贩子。
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+<script>
+    $(function(){
+
+var timelineSwiper = new Swiper ('.timeline .swiper-container', {
+  direction: 'vertical',
+  loop: false,
+  speed: 1600,
+  pagination: '.swiper-pagination',
+  paginationBulletRender: function (swiper, index, className) {
+    var year = document.querySelectorAll('.swiper-slide')[index].getAttribute('data-year');
+    return '<span class="' + className + '">' + year + '</span>';
+  },
+  paginationClickable: true,
+  nextButton: '.swiper-button-next',
+  prevButton: '.swiper-button-prev',
+  breakpoints: {
+    768: {
+      direction: 'horizontal',
+    }
+  }
+});
+
+
+    });
+</script>
+</body>
+</html>
